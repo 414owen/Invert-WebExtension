@@ -3,12 +3,16 @@
 	"manifest_version": 2,
 	"name": "Invert",
 	"version": "1.0",
-
 	"description": "Adds a page inversion toggle",
 
 	"icons": {
-		"48": "icon.svg",
-		"96": "icon.svg"
+		"16":  "icons/16.png",
+		"32":  "icons/32.png",
+		"48":  "icons/48.png",
+		"96":  "icons/96.png",
+		"128": "icons/128.png",
+		"192": "icons/192.png",
+		"256": "icons/256.png"
 	},
 
 	"permissions": [
@@ -16,7 +20,15 @@
 	],
 
 	"browser_action": {
-		"default_icon": "icon.svg",
+		"default_icon": {
+			"16":  "icons/16.png",
+			"32":  "icons/32.png",
+			"48":  "icons/48.png",
+			"96":  "icons/96.png",
+			"128": "icons/128.png",
+			"192": "icons/192.png",
+			"256": "icons/256.png"
+		},
 		"default_title": "Invert",
 		"default_popup": "popup.html"
 	},

@@ -1,11 +1,13 @@
-console.log("Page Inverter Loaded");
 const reg = /invert\(\d*%\)/;
 let haveInverted = false;
 let inverted = false;
 const container = document.createElement("div");
 const style = container.style;
 
-browser.runtime.onMessage.addListener(() => {
+const ff = navigator.userAgent.indexOf("Firefox") != -1;
+const api = (ff ? browser : chrome);
+
+api.runtime.onMessage.addListener(() => {
 	const newVal = "invert(" + (inverted ? 0 : 100) + "%)";
 
 	if (!haveInverted) {
@@ -32,13 +34,10 @@ browser.runtime.onMessage.addListener(() => {
 	}
 	
 	if (style.filter === "") {
-		console.log("inserting");
 		style.filter = newVal;
 	} else if (reg.test(style.filter)) {
-		console.log("replacing");
 		style.filter = style.filter.replace(reg, newVal);
 	} else {
-		console.log("appending");
 		style.filter = style.filter + " " + newVal;
 	}
 
