@@ -1,42 +1,27 @@
 {
-
-	"manifest_version": 2,
-	"name": "Invert",
-	"version": "1.0",
-	"description": "Adds a page inversion toggle",
-
-	"icons": {
-		"16":  "icons/16.png",
-		"32":  "icons/32.png",
-		"48":  "icons/48.png",
-		"96":  "icons/96.png",
-		"128": "icons/128.png",
-		"192": "icons/192.png",
-		"256": "icons/256.png"
-	},
-
-	"permissions": [
-		"activeTab"
-	],
-
-	"browser_action": {
-		"default_icon": {
-			"16":  "icons/16.png",
-			"32":  "icons/32.png",
-			"48":  "icons/48.png",
-			"96":  "icons/96.png",
-			"128": "icons/128.png",
-			"192": "icons/192.png",
-			"256": "icons/256.png"
-		},
-		"default_title": "Invert",
-		"default_popup": "popup.html"
-	},
-
-	"content_scripts": [
-		{
-			"matches": ["<all_urls>"],
-			"js": ["invert.js"]
-		}
-	]
+  "manifest_version": 2,
+  "name": "Inverter",
+  "version": "2.1",
+  "description": "Invert pages very easily",
+  "icons": {
+    "16":  "/icon.svg",
+    "24":  "/icon.svg",
+    "32":  "/icon.svg",
+    "48":  "/icon.svg",
+    "96":  "/icon.svg",
+    "128": "/icon.svg"
+  },
+  "content_scripts": [
+    { "matches": ["<all_urls>"], "js": ["inverter.js"] }
+  ],
+  "options_ui": {
+    "page": "/options.html",
+    "browser_style": true,
+    "open_in_tab": false,
+    "chrome_style": true
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ]
 }
